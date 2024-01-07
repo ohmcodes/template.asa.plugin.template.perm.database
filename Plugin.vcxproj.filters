@@ -144,6 +144,9 @@
     <ClCompile Include="src\Database\sqlite3.c">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
+    <ClCompile Include="src\DBHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />
@@ -2467,6 +2470,15 @@
     </ClInclude>
     <ClInclude Include="src\Public\Plugin.h">
       <Filter>Source Files\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\ServerAPI\AsaApi\Core\Public\Ark\AsaApiUtilsMessagingManager.h">
+      <Filter>Header Files\ServerAPI\Ark</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\ServerAPI\AsaApi\Core\Public\Ark\MessagingManager.h">
+      <Filter>Header Files\ServerAPI\Ark</Filter>
+    </ClInclude>
+    <ClInclude Include="extern\ServerAPI\AsaApi\Core\Public\AsaApiModUtils.hpp">
+      <Filter>Header Files\ServerAPI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

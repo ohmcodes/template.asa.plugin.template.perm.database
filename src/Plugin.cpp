@@ -1,19 +1,18 @@
 #include "Database/MysqlDB.h"
 #include "Database/SqlLiteDB.h"
 
-#include "API/ARK/Ark.h"
-
 #include "Plugin.h"
 
 #include <fstream>
 
+#include "Logger/Logger.h"
+
 #include <DBHelper.h>
 
 //#include <Store.h> // example
-//#include <Permissions.h> //example
+#include <Permissions.h> //example
 
 #pragma comment(lib, "AsaApi.lib")
-#pragma comment(lib, "ArkShop.lib")
 #pragma comment(lib, "Permissions.lib")
 
 template <typename T>
@@ -21,7 +20,7 @@ T GetText(const std::string& section, const std::string& value)
 {
     try
     {
-        return DiscordLinker::config[section][value].get<T>();
+        return Plugin::config[section][value].get<T>();
     }
     catch (const nlohmann::json::exception& error)
     {
@@ -41,7 +40,7 @@ T GetJson(const std::string& section, const std::string& value)
 {
     try
     {
-        auto jsonValue = DiscordLinker::config[section][value];
+        auto jsonValue = Plugin::config[section][value];
 
         // Check if the value is null
         if (jsonValue.is_null() || jsonValue.empty()) {
@@ -56,6 +55,11 @@ T GetJson(const std::string& section, const std::string& value)
         throw;
     }
 }
+
+
+// Sample Permission call
+// Permissions::IsPlayerInGroup(eos_id, group_name.key().c_str())
+
 
 void ReadConfig()
 {
@@ -123,8 +127,8 @@ void AddRemoveCommands(bool addCmd = true)
     }
     else
     {
-        AsaApi::GetCommands().RemoveConsoleCommand("DiscordLinker.Reload");
-        AsaApi::GetCommands().RemoveRconCommand("DiscordLinker.Reload");
+        AsaApi::GetCommands().RemoveConsoleCommand(console_reload);
+        AsaApi::GetCommands().RemoveRconCommand(rcon_reload);
     }
 }
 
@@ -147,7 +151,7 @@ void LoadDatabase()
         }
         else
         {
-            const std::string db_path = GetText<std::string>("Mysql", "DbPathOverride");
+            const std::string db_path = Plugin::config["Mysql"]["DbPathOverride"];
 
 
             Plugin::database = std::make_unique<SqlLite>(db_path);

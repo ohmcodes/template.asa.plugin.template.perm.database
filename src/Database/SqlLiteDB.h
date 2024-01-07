@@ -6,6 +6,8 @@
 
 #include "IDatabase.h"
 
+#include "Plugin.h"
+
 class SqlLite : public IDatabase
 {
 public:
@@ -17,11 +19,12 @@ public:
 		try
 		{
 			//db_ << "PRAGMA journal_mode=WAL;";
-
-			db_ << "CREATE TABLE IF NOT EXISTS DiscordLinker ("
+			std::string query = fmt::format("CREATE TABLE IF NOT EXISTS {} ("
 				"Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
 				"EosId TEXT NOT NULL UNIQUE"
-				");";
+				");", PROJECT_NAME);
+
+			db_ << query;
 		}
 		catch (const std::exception& exception)
 		{

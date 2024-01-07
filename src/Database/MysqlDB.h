@@ -6,6 +6,8 @@
 
 #include "json.hpp"
 
+#include "Plugin.h"
+
 #pragma comment(lib, "mysqlclient.lib")
 
 class MySql : public IDatabase
