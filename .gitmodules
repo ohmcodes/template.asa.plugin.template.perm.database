@@ -1,0 +1,6 @@
+[submodule "extern/ServerAPI"]
+	path = extern/ServerAPI
+	url = https://github.com/ServersHub/ServerAPI.gits
+[submodule "extern/ServerAPI-Plugins"]
+	path = extern/ServerAPI-Plugins
+	url = https://github.com/ServersHub/ServerAPI-Plugins.git

@@ -1,0 +1,17 @@
+{
+  {
+    "Mysql": {
+      "MysqlDB": "",
+      "MysqlHost": "",
+      "MysqlPass": "",
+      "MysqlPort": 3306,
+      "MysqlUser": "",
+      "UseMysql": false,
+      "DbPathOverride": ""
+    }
+  },
+  "Commands": {
+    "RCONReload": "Plugin.Reload",
+    "ConsoleReload": "Plugin.Reload"
+  }
+}

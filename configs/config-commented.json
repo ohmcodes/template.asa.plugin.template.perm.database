@@ -1,0 +1,11 @@
+{
+  "Mysql": {
+    "MysqlDB": "", /* Database name */
+    "MysqlHost": "", /* host or ip address */
+    "MysqlPass": "", /* password */
+    "MysqlPort": 3306, /* port 3306 default mostly */
+    "MysqlUser": "", /* db username */
+    "UseMysql": false, /* Mysql credentials is required if enabled */
+    "DbPathOverride": "" /* sqlite database location */
+  }
+}
